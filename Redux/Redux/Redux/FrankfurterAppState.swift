@@ -13,6 +13,10 @@ public struct FrankfurterAppState: Equatable {
     public internal(set) var currencyList: CurrencyList
 }
 
+public extension FrankfurterAppState {
+    static let initialState = Self(currencyList: .initialState)
+}
+
 // MARK: - Reducer
 
 func appReducer(action: Action, state: inout FrankfurterAppState) {
@@ -26,8 +30,8 @@ public struct CurrencyList: Equatable {
     public let errorMessage: String?
     
     public struct Currency: Equatable {
-        let fullName: String
-        let code: String
+        public let fullName: String
+        public let code: String
     }
 }
 
