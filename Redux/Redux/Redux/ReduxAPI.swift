@@ -13,8 +13,8 @@ public struct ReduxAPI {
     private static var getState: GetState<FrankfurterAppState>!
     
     public static func initiateStore() {
-        let appliedMiddledwares = applyMiddleware(middlewares: [downloadCurrenciesMiddleware(session: Networking())])
-        let composedStore = appliedMiddledwares(createStore)
+        let appliedMiddlewares = applyMiddleware(middlewares: [downloadCurrenciesMiddleware(session: Networking())])
+        let composedStore = appliedMiddlewares(createStore)
         let (dispatch, subscribe, getState) = composedStore(appReducer, FrankfurterAppState(currencyList: .initialState))
         
         dispatchFunction = dispatch

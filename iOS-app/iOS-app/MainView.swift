@@ -24,16 +24,25 @@ struct MainView: View {
     }
 }
 
+// MARK: - Inner views
+
 private struct CurrencyListView: View {
+    
     private let currencies: [CurrencyList.Currency]
+    @Environment(\.dispatcher)
+    private var dispatcher
     
     init(_ currencies: [CurrencyList.Currency]) {
         self.currencies = currencies
     }
     
     var body: some View {
-        List(currencies, id: \.id) { currency in
-            Text("Currency: \(currency.fullName) - \(currency.code)")
+        if currencies.isEmpty == false {
+            List(currencies, id: \.id) {
+                Text("Currency: \($0.fullName) - \($0.code)")
+            }
+        } else {
+            Button("Tap to download") { dispatcher.dispatch(CurrencyAction.getCurrencies) }
         }
     }
 }
