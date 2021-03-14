@@ -1,6 +1,5 @@
 //
-//  iOS_appApp.swift
-//  iOS-app
+//  FrankfurteriOS.swift
 //
 //  Created by Daniel Garcia on 14.03.21.
 //
@@ -9,7 +8,7 @@ import SwiftUI
 import Redux
 
 @main
-struct iOS_appApp: App {
+struct FrankfurteriOS: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

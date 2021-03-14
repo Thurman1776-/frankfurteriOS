@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6527BFB225FE46A900CBDDEE /* iOS_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527BFB125FE46A900CBDDEE /* iOS_appApp.swift */; };
 		6527BFB425FE46A900CBDDEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527BFB325FE46A900CBDDEE /* ContentView.swift */; };
 		6527BFB625FE46AB00CBDDEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6527BFB525FE46AB00CBDDEE /* Assets.xcassets */; };
 		6527BFB925FE46AB00CBDDEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6527BFB825FE46AB00CBDDEE /* Preview Assets.xcassets */; };
 		6527BFC425FE46AB00CBDDEE /* iOS_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527BFC325FE46AB00CBDDEE /* iOS_appTests.swift */; };
 		6527BFCF25FE46AB00CBDDEE /* iOS_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527BFCE25FE46AB00CBDDEE /* iOS_appUITests.swift */; };
 		6527C00C25FE47CD00CBDDEE /* Redux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6527C00B25FE47CD00CBDDEE /* Redux.framework */; };
+		6527C03C25FE72AA00CBDDEE /* FrankfurteriOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527C03B25FE72AA00CBDDEE /* FrankfurteriOS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,6 @@
 
 /* Begin PBXFileReference section */
 		6527BFAE25FE46A900CBDDEE /* iOS-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6527BFB125FE46A900CBDDEE /* iOS_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_appApp.swift; sourceTree = "<group>"; };
 		6527BFB325FE46A900CBDDEE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6527BFB525FE46AB00CBDDEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6527BFB825FE46AB00CBDDEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		6527BFCE25FE46AB00CBDDEE /* iOS_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_appUITests.swift; sourceTree = "<group>"; };
 		6527BFD025FE46AB00CBDDEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6527C00B25FE47CD00CBDDEE /* Redux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Redux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6527C03B25FE72AA00CBDDEE /* FrankfurteriOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrankfurteriOS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,7 @@
 		6527BFB025FE46A900CBDDEE /* iOS-app */ = {
 			isa = PBXGroup;
 			children = (
-				6527BFB125FE46A900CBDDEE /* iOS_appApp.swift */,
+				6527C03B25FE72AA00CBDDEE /* FrankfurteriOS.swift */,
 				6527BFB325FE46A900CBDDEE /* ContentView.swift */,
 				6527BFB525FE46AB00CBDDEE /* Assets.xcassets */,
 				6527BFBA25FE46AB00CBDDEE /* Info.plist */,
@@ -271,8 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6527C03C25FE72AA00CBDDEE /* FrankfurteriOS.swift in Sources */,
 				6527BFB425FE46A900CBDDEE /* ContentView.swift in Sources */,
-				6527BFB225FE46A900CBDDEE /* iOS_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
