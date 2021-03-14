@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "fudux",
+        "repositoryURL": "https://github.com/Thurman1776-/fudux",
+        "state": {
+          "branch": null,
+          "revision": "c49939b4b795c70d12f262bd98ce3b1eaeafe2ea",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
