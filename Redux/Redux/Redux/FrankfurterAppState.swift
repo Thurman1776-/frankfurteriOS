@@ -32,6 +32,11 @@ public struct CurrencyList: Equatable {
     public struct Currency: Equatable {
         public let fullName: String
         public let code: String
+        
+        public init(fullName: String, code: String) {
+            self.fullName = fullName
+            self.code = code
+        }
     }
 }
 

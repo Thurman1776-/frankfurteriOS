@@ -18,6 +18,9 @@ struct MainView: View {
                     Text("See available currencies")
                         .foregroundColor(.blue)
                 }
+                NavigationLink(destination: CurrencyConverter().environmentObject(store)) {
+                    Text("Currency converter")
+                }
             }
             .navigationBarTitle("Frankfurter app")
         }
@@ -43,13 +46,7 @@ private struct CurrencyListView: View {
             }
         } else {
             Button("Tap to download") { dispatcher.dispatch(CurrencyAction.getCurrencies) }
+                .disabled(currencies.isEmpty == false)
         }
     }
 }
-
-// MARK: - App State extensions
-
-extension CurrencyList.Currency: Identifiable {
-    public var id: Int { fullName.hash + code.hash }
-}
-
