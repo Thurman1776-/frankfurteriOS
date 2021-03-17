@@ -31,13 +31,19 @@ struct CurrencyConverter: View {
         } else {
             VStack(spacing: 24) {
                 CurrencyInput(title: "Source", initialValue: $sourceAmount, defaultCurrency: $sourceCurrency)
-                CurrencyInput(title: "Destination", initialValue: $destAmount, defaultCurrency: $destCurrency)
-                Button("Convert!") {
-                    print("source: \(sourceAmount)")
-                    print("source currency: \(sourceCurrency)")
-                    print("dest: \(destAmount)")
-                    print("dest currency: \(destCurrency)")
+                Divider()
+                    .background(Color.black)
+                Text("Convert to:")
+                PickerView(currencies: store.appState.currencyList.currencies, currencyRawValue: $destCurrency)
+                Button("Profit!") {
+                    dispatcher.dispatch(
+                        CurrencyConversionAction.performConversion(from: sourceCurrency, to: destCurrency, amount: Double(sourceAmount)!)
+                    )
                 }
+                if store.appState.currencyConversion.result != nil {
+                    Text("Result: \(store.appState.currencyConversion.result!)")
+                    Button("Start over:") { dispatcher.dispatch(CurrencyConversionAction.reset) }
+                }                
             }
         }
     }

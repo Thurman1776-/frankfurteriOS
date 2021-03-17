@@ -33,6 +33,33 @@ struct Networking {
             
         }.resume()
     }
+    
+    func performConversion(
+        from sourceCurrency: String,
+        to destCurrency: String,
+        with amount: Double,
+        _ completion: @escaping (Swift.Result<Double, NetworkingError>) -> Void
+    ) {
+        let url = URL(string: "https://api.frankfurter.app/latest?amount=\(amount)&from=\(sourceCurrency)&to=\(destCurrency)")!
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlSession.dataTask(with: urlRequest) { (data, response, error) in
+            if error != nil {
+                completion(.failure(.goodOldGenericError))
+                return
+            }
+            
+            if
+                let data = data,
+                let result = try? JSONDecoder().decode(ConversionResponse.self, from: data) {
+                completion(.success(result.rates.values.first!))
+            } else {
+                completion(.failure(.goodOldGenericError))
+            }
+            
+            
+        }.resume()
+    }
 }
 
 enum NetworkingError: Error, LocalizedError {
