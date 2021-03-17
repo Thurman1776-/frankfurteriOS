@@ -33,6 +33,10 @@ struct CurrencyConverter: View {
                 CurrencyInput(title: "Source", initialValue: $sourceAmount, defaultCurrency: $sourceCurrency)
                 CurrencyInput(title: "Destination", initialValue: $destAmount, defaultCurrency: $destCurrency)
                 Button("Convert!") {
+                    print("source: \(sourceAmount)")
+                    print("source currency: \(sourceCurrency)")
+                    print("dest: \(destAmount)")
+                    print("dest currency: \(destCurrency)")
                 }
             }
         }
