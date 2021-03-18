@@ -46,7 +46,6 @@ private struct CurrencyListView: View {
             }
         } else {
             Button("Tap to download") { dispatcher.dispatch(CurrencyAction.getCurrencies) }
-                .disabled(currencies.isEmpty == false)
         }
     }
 }

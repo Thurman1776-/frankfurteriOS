@@ -31,13 +31,17 @@ public struct CurrencyList: Equatable {
     public let currencies: [Currency]
     public let errorMessage: String?
     
-    public struct Currency: Equatable {
+    public struct Currency: Equatable, Comparable {
         public let fullName: String
         public let code: String
         
         public init(fullName: String, code: String) {
             self.fullName = fullName
             self.code = code
+        }
+        
+        public static func < (lhs: CurrencyList.Currency, rhs: CurrencyList.Currency) -> Bool {
+            lhs.code < rhs.code
         }
     }
 }
@@ -72,7 +76,7 @@ func downloadCurrenciesMiddleware(session: Networking) -> Middleware<Frankfurter
                     session.getCurrencies { result in
                         switch result {
                         case .success(let value):
-                            dispatchFunction(CurrencyAction.setCurrencies(value))
+                            dispatchFunction(CurrencyAction.setCurrencies(value.sorted()))
                         case .failure(let error):
                             dispatchFunction(CurrencyAction.setError(error.errorDescription))
                         }
