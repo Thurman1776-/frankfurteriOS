@@ -103,6 +103,7 @@
 		65240F5D2602563600614581 /* Views  */ = {
 			isa = PBXGroup;
 			children = (
+				6527C04A25FE9CFD00CBDDEE /* MainView.swift */,
 				65240F5E2602564400614581 /* CurrencyConverter.swift */,
 			);
 			path = "Views ";
@@ -135,7 +136,6 @@
 				65240F4F2602554900614581 /* Extensions */,
 				65240F4E2602553F00614581 /* Utils */,
 				6527C03B25FE72AA00CBDDEE /* FrankfurteriOS.swift */,
-				6527C04A25FE9CFD00CBDDEE /* MainView.swift */,
 				65240F5D2602563600614581 /* Views  */,
 				6527BFB525FE46AB00CBDDEE /* Assets.xcassets */,
 				6527BFBA25FE46AB00CBDDEE /* Info.plist */,

@@ -30,11 +30,11 @@ struct CurrencyConverter: View {
             Text("Download currencies first")
         } else {
             VStack(spacing: 24) {
-                CurrencyInput(title: "Source", initialValue: $sourceAmount, defaultCurrency: $sourceCurrency)
+                CurrencyInputView(title: "Source", initialAmount: $sourceAmount, initialCurrency: $sourceCurrency)
                 Divider()
                     .background(Color.black)
                 Text("Convert to:")
-                PickerView(currencies: store.appState.currencyList.currencies, currencyRawValue: $destCurrency)
+                PickerView(currencies: store.appState.currencyList.currencies, currencyCode: $destCurrency)
                 Button("Profit!") {
                     dispatcher.dispatch(
                         CurrencyConversionAction.performConversion(from: sourceCurrency, to: destCurrency, amount: Double(sourceAmount)!)
@@ -51,7 +51,7 @@ struct CurrencyConverter: View {
 
 // MARK: Private views
 
-private struct CurrencyInput: View {
+private struct CurrencyInputView: View {
     @Binding
     private var amount: String
     @Binding
@@ -62,12 +62,12 @@ private struct CurrencyInput: View {
     
     init(
         title: String,
-        initialValue: Binding<String>,
-        defaultCurrency: Binding<String>
+        initialAmount: Binding<String>,
+        initialCurrency: Binding<String>
     ) {
         self.title = title
-        self._amount = initialValue
-        self._currency = defaultCurrency
+        self._amount = initialAmount
+        self._currency = initialCurrency
     }
     
     var body: some View {
@@ -79,7 +79,7 @@ private struct CurrencyInput: View {
             .onReceive(Just(amount), perform: formatString(_:))
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .keyboardType(.numbersAndPunctuation)
-            PickerView(currencies: store.appState.currencyList.currencies, currencyRawValue: $currency)
+            PickerView(currencies: store.appState.currencyList.currencies, currencyCode: $currency)
         }
     }
     
@@ -101,9 +101,9 @@ private struct PickerView: View {
     private var shouldShowPicker = false
     private var currencies: [String] = []
     
-    init(currencies: [CurrencyList.Currency], currencyRawValue: Binding<String>) {
+    init(currencies: [CurrencyList.Currency], currencyCode: Binding<String>) {
         self.currencies = currencies.map { $0.code }
-        self._selectedCurrencyCode = currencyRawValue
+        self._selectedCurrencyCode = currencyCode
     }
 
     var body: some View {
